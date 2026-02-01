@@ -1,0 +1,157 @@
+\documentclass[reprint,amsmath,amssymb,aps,twoside]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{siunitx}
+%\usepackage{tikz,pgfplots}
+\sisetup{separate-uncertainty=true}
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\usepackage{cleveref}
+\crefname{equation}{}{}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tables}
+\usepackage{svg}
+
+% set PDF metadata
+\hypersetup{%
+pdftitle={Testing the independence of gravitational acceleration from mass: a comparative analysis of free-falling objects near Earth’s surface},
+pdfauthor={Lorenzo Brunie, Jacob Kadan, Ethan Sobel, and Tarun Ramesh},
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE,RO]{J S\&E \textbf{2}, 54--58 (2026)}
+\fancyhead[LO]{Brunie \emph{et al}}
+\fancyhead[LE]{Testing the independence of gravitational acceleration from mass}
+\fancyfoot[C]{\thepage}
+\fancypagestyle{mytitlepage}{
+\fancyhf{}
+\fancyhead[C]{Journal of Science \& Engineering \textbf{2}, 54--58 (2026)}
+\fancyfoot[C]{\thepage}
+}
+
+
+\begin{document}
+\setcounter{page}{35}
+
+\title{Testing the independence of gravitational acceleration from mass: a comparative analysis of free-falling objects near Earth’s surface}
+\author{Lorenzo Brunie}
+\email{Contact author: 427lbrunie@frhsd.com}
+\author{Jacob Kadan}
+\author{Ethan Sobel}
+\author{Tarun Ramesh}
+\affiliation{Science \& Engineering Magnet Program, \href{https://manalapan.frhsd.com/}{Manalapan High School}, Englishtown, NJ 07726 USA}
+\date{\today}
+
+\begin{abstract}
+The goal of this experiment was to determine whether mass affects the acceleration during a free-fall near the Earth’s surface. We dropped a \qty{2.9}{\kilo\gram} bowling ball and \qty{0.142}{\kilo\gram} baseball from a window \qty{5.0}{\meter} off the ground; we filmed a trial for each ball and used the framerate to calculate how long it took the bowling ball, from when dropped, to when it hit the ground: under the specific conditions of low altitude, \qty{9.8}{\meter\per\second\squared}, and negligible air resistance for the dense objects.  We found that both dense objects reached the ground at nearly equal times: these results support the principle that mass does not affect gravitational acceleration near the Earth's surface.
+\end{abstract}
+
+\keywords{keywords here}
+
+\maketitle\thispagestyle{mytitlepage}
+
+
+
+
+\section{Introduction}
+%In free-fall, regardless of the mass of the object, the object will have the same acceleration due to gravity. You're out to test this. 
+Galileo theorized that, in the absence of air resistance, all objects fall at the same rate regardless of their mass \cite{galilei:1638:discorsi}. Using inclined planes, Galileo explored how objects accelerate, observing that the distance fallen increased with time squared. This also challenged the 2,000-year-old Aristotelian belief that heavier objects fall faster than lighter ones \cite{aristotle:physics}. Building on Galileo’s work, Sir Isaac Newton later formalized the relationship between force, mass, and acceleration in his Second Law of Motion ($\sum \vec{F}=m\vec{a}$). This law implies that the gravitational force acting on an object (its weight) is directly proportional to its mass; however, since acceleration is equal to force divided by mass, the ratio cancels out, meaning that all objects experience the same gravitational acceleration of $g=\qty{9.8}{\meter\per\second\squared}$, regardless of mass. The following kinematics equation shows the relation between the distance an object falls ($y$), the time it takes ($t$), and the acceleration of gravity ($g$) \cite{tipler}:
+\begin{equation}
+y = -\frac{1}{2} g t^2.
+\end{equation}
+
+In this experiment, we attempted to see if these principles held true. By comparing a baseball and a much heavier bowling ball, we wanted to observe any measurable difference in fall time (disregarding air resistance) \cite{tipler}.
+
+
+
+
+
+
+
+
+
+\section{Methods and materials}
+\subsection{Objects dropped}
+To measure the drop height $y$, meter sticks were secured against the exterior wall directly below the release point. Before each trial, a verbal countdown was used only to coordinate the release of the object and the start of video recording. Each drop was recorded using an iPhone 12 (Apple; Cupertino, CA) at a frame rate of \qty{60}{frame\per\second}, allowing time measurements to be obtained from individual video frames with greater precision than a handheld stopwatch. The objects were released from rest at the moment the countdown reached zero, without any initial push. The recorded videos were then analyzed using video-tracking software to digitize the trajectories and extract position–time data, from which velocities and accelerations were determined. 
+
+\subsection{Calculations}
+Once all experimental trials were completed, the recorded videos were analyzed using Tracker Online (Open Source Physics) \cite{tracker}. This software was used to digitize the motion of each object frame-by-frame and extract position–time data for every trial. From these datasets, velocities and accelerations were determined through numerical differentiation and by fitting the data to constant-acceleration kinematic equations.
+
+Acceleration is defined as the time derivative of velocity, and velocity is the time derivative of position. For motion under constant gravitational acceleration with downward taken as the positive direction, the kinematic equations are:
+\begin{align}
+y(t) &= -\frac{1}{2} g t^2 + v_0 t + y_0 \\
+v_y(t) &= - g t + v_0 \\
+a_y(t) &= - g.
+\end{align}
+Since the objects were released from rest, the initial velocity $v_0=0$. Quadratic fits to the position–time data were used to determine the value of g for each trial, and the resulting accelerations were averaged across trials to obtain final values and uncertainties.
+
+
+
+
+
+
+
+
+\section{Results}
+We recorded the relationship between the distance fallen and the time for the bowling ball and the baseball from a drop height of \qty{5}{\meter}. The data were used to produce a time vs. distance graph, comparing the two balls. The balls fell at nearly the same rate and hit the ground at nearly identical times. As shown in the figures below. \textbf{This part goes in discussion? You need to refer to all the graphs and tables somewhere.}
+\begin{figure}
+\caption{Vertical position vs time}
+\label{fig:1}
+\end{figure}
+\begin{figure}
+\caption{Velocity vs time}
+\label{fig:2}
+\end{figure}
+
+\begin{table}
+\caption{Position of balls}
+\label{tab:3}
+\end{table}
+\begin{table}
+\caption{Velocity of balls}
+\label{tab:4}
+\end{table}
+\begin{table}
+\caption{Time in air vs weight of balls}
+\label{tab:5}
+\end{table}
+
+
+
+
+
+
+\section{Discussion}
+The results of this experiment are consistent with the prediction that objects in free fall near Earth’s surface experience the same gravitational acceleration. As shown in \cref{fig:1}, the bowling ball (\qty{2.9}{\kilo\gram}) and the baseball (\qty{0.142}{\kilo\gram}) reached the ground within experimental uncertainty when dropped from a height of \qty{5}{\meter}. This coincides with the prediction that gravitational acceleration is independent of mass under the conditions tested.
+
+From velocity-time data (\cref{fig:2}), the linear relationship observed indicates that the acceleration remained approximately constant during the fall, at a value of . Within experimental uncertainty, this agrees with the accepted value of gravitational acceleration on Earth, $g=\qty{9.8}{\meter\per\second\squared}$ \cite{tipler}. Sources of uncertainty include air resistance and the finite frame rate of the video recording (\qty{60}{frame\per\second}), which limits timing resolution and may lead to small systematic errors in the calculated acceleration.
+
+\subsection{Model limitations}
+These findings support our hypothesis, originally proposed by Galileo and later verified by Newton and others, that a free-falling object’s acceleration is independent of an object’s mass. Although the gravitational force acting on an object is proportional to its mass, as described by Newton’s law of universal gravitation $F=\frac{GmM}{r^2}$, taken very near to the surface the Earth at $r=R_E$ and substituting this force into Newton’s second law $F=ma$ shows that the mass of the falling object cancels and the acceleration is approximately constant, resulting in an acceleration that is independent of the object’s mass \cite{tipler}.
+
+
+
+
+
+
+\section{Acknowledgements} 
+We thank J.~Komitas and the Science and Engineering Magnet Program, for providing us with the resources and lab space to conduct our research. We thank several anonymous reviewers for providing helpful comments. LB did X. JK did X. ES did X. TR did X. 
+
+
+
+
+
+\bibliography{lab.bib}
+%References 
+
+%Galilei, Galileo. Two New Sciences. Translated by Stillman Drake, University of Wisconsin Press, 1974.
+
+%Tipler, Paul A., and Gene Mosca. Physics for Scientists and Engineers. 5th ed., W. H. Freeman, 2003.
+
+%Brown, Douglas, Robert M. Hanson, and Wolfgang Christian. "Tracker Online." Open Source Physics, AAPT, https://opensourcephysics.github.io/tracker-online/
+
+
+\end{document}
