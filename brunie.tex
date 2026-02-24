@@ -59,12 +59,12 @@ The goal of this experiment was to determine whether mass affects the accelerati
 
 \section{Introduction}
 %In free-fall, regardless of the mass of the object, the object will have the same acceleration due to gravity. You're out to test this. 
-Galileo theorized that, in the absence of air resistance, all objects fall at the same rate regardless of their mass \cite{galilei:1638:discorsi}. Using inclined planes, Galileo explored how objects accelerate, observing that the distance fallen increased with time squared. This also challenged the 2,000-year-old Aristotelian belief that heavier objects fall faster than lighter ones \cite{aristotle:physics}. Building on Galileo’s work, Sir Isaac Newton later formalized the relationship between force, mass, and acceleration in his Second Law of Motion ($\sum \vec{F}=m\vec{a}$). This law implies that the gravitational force acting on an object (its weight) is directly proportional to its mass; however, since acceleration is equal to force divided by mass, the ratio cancels out, meaning that all objects experience the same gravitational acceleration of $g=\qty{9.8}{\meter\per\second\squared}$, regardless of mass. The following kinematics equation shows the relation between the distance an object falls ($y$), the time it takes ($t$), and the acceleration of gravity ($g$) \cite{tipler}:
+Galileo theorized that, in the absence of air resistance, all objects fall at the same rate regardless of their mass \cite{galilei:1638:discorsi, machamer:2021:galileo}. Using inclined planes, Galileo explored how objects accelerate, observing that the distance fallen increased with time squared. This also challenged the 2,000-year-old Aristotelian belief that heavier objects fall faster than lighter ones \cite{aristotle:physics}. Building on Galileo’s work, Sir Isaac Newton later formalized the relationship between force, mass, and acceleration in his Second Law of Motion ($\sum \vec{F}=m\vec{a}$). This law implies that the gravitational force acting on an object (its weight) is directly proportional to its mass; however, since acceleration is equal to force divided by mass, the ratio cancels out, meaning that all objects experience the same gravitational acceleration of $g=\qty{9.8}{\meter\per\second\squared}$, regardless of mass. The following kinematics equation shows the relation between the distance an object falls ($y$), the time it takes ($t$), and the acceleration of gravity ($g$) \cite{tipler, openstax, barrons}:
 \begin{equation}
 y = -\frac{1}{2} g t^2.
 \end{equation}
 
-In this experiment, we attempted to see if these principles held true. By comparing a baseball and a much heavier bowling ball, we wanted to observe any measurable difference in fall time (disregarding air resistance) \cite{tipler}.
+In this experiment, we attempted to see if these principles held true. By comparing a baseball and a much heavier bowling ball, we wanted to observe any measurable difference in fall time (disregarding air resistance) \cite{tipler, openstax, barrons}.
 
 
 
@@ -76,12 +76,12 @@ In this experiment, we attempted to see if these principles held true. By compar
 
 \section{Methods and materials}
 \subsection{Objects dropped}
-To measure the drop height $y$, meter sticks were secured against the exterior wall directly below the release point. Before each trial, a verbal countdown was used only to coordinate the release of the object and the start of video recording. Each drop was recorded using an iPhone 12 (Apple; Cupertino, CA) at a frame rate of \qty{60}{frame\per\second}, allowing time measurements to be obtained from individual video frames with greater precision than a handheld stopwatch. The objects were released from rest at the moment the countdown reached zero, without any initial push. The recorded videos were then analyzed using video-tracking software to digitize the trajectories and extract position–time data, from which velocities and accelerations were determined. 
+To measure the drop height $y$, meter sticks were secured against the exterior wall directly below the release point. Before each trial, a verbal countdown was used only to coordinate the release of the object and the start of video recording. Each drop was recorded using an iPhone 12 (Apple; Cupertino, CA) at a frame rate of \qty{60}{frame\per\second}, allowing time measurements to be obtained from individual video frames with greater precision than a handheld stopwatch (Pulivia YS-802; Shenzhen, China). The objects were released from rest at the moment the countdown reached zero, without any initial push. The recorded videos were then analyzed using video-tracking software to digitize the trajectories and extract position–time data, from which velocities and accelerations were determined. 
 
 \subsection{Calculations}
-Once all experimental trials were completed, the recorded videos were analyzed using Tracker Online (Open Source Physics) \cite{tracker}. This software was used to digitize the motion of each object frame-by-frame and extract position–time data for every trial. From these datasets, velocities and accelerations were determined through numerical differentiation and by fitting the data to constant-acceleration kinematic equations.
+Once all experimental trials were completed, the recorded videos were analyzed using Tracker \cite{tracker, renika:2024:kinematics}. This software was used to digitize the motion of each object frame-by-frame and extract position–time data for every trial. From these datasets, velocities and accelerations were determined through numerical differentiation and by fitting the data to constant-acceleration kinematic equations.
 
-Acceleration is defined as the time derivative of velocity, and velocity is the time derivative of position. For motion under constant gravitational acceleration with downward taken as the positive direction, the kinematic equations are:
+Acceleration is defined as the time derivative of velocity, and velocity is the time derivative of position \cite{tipler,openstax,barrons}. For motion under constant gravitational acceleration with downward taken as the positive direction, the kinematic equations are:
 \begin{align}
 y(t) &= -\frac{1}{2} g t^2 + v_0 t + y_0 \\
 v_y(t) &= - g t + v_0 \\
@@ -89,7 +89,7 @@ a_y(t) &= - g.
 \end{align}
 Since the objects were released from rest, the initial velocity $v_0=0$. Quadratic fits to the position–time data were used to determine the value of g for each trial, and the resulting accelerations were averaged across trials to obtain final values and uncertainties.
 
-
+Statistical analyses \cite{starnes:2015:practice} were performed in R \cite{R} using the \texttt{dplyr} and \texttt{ggplot2} libraries \cite{dplyr,ggplot2} 
 
 
 
@@ -135,12 +135,12 @@ We recorded the relationship between the distance fallen and the time for the bo
 
 
 \section{Discussion}
-The results of this experiment are consistent with the prediction that objects in free fall near Earth’s surface experience the same gravitational acceleration. As shown in \cref{fig:1}, the bowling ball (\qty{2.9}{\kilo\gram}) and the baseball (\qty{0.142}{\kilo\gram}) reached the ground within experimental uncertainty when dropped from a height of \qty{5}{\meter}. This coincides with the prediction that gravitational acceleration is independent of mass under the conditions tested.
+The results of this experiment are consistent with the prediction that objects in free fall near Earth’s surface experience the same gravitational acceleration \cite{tipler,openstax,barrons}. As shown in \cref{fig:1}, the bowling ball (\qty{2.9}{\kilo\gram}) and the baseball (\qty{0.142}{\kilo\gram}) reached the ground within experimental uncertainty when dropped from a height of \qty{5}{\meter}. This coincides with the prediction that gravitational acceleration is independent of mass under the conditions tested.
 
-From velocity-time data (\cref{fig:2}), the linear relationship observed indicates that the acceleration remained approximately constant during the fall, at a value of . Within experimental uncertainty, this agrees with the accepted value of gravitational acceleration on Earth, $g=\qty{9.8}{\meter\per\second\squared}$ \cite{tipler}. Sources of uncertainty include air resistance and the finite frame rate of the video recording (\qty{60}{frame\per\second}), which limits timing resolution and may lead to small systematic errors in the calculated acceleration.
+From velocity-time data (\cref{fig:2}), the linear relationship observed indicates that the acceleration remained approximately constant during the fall, at a value of . Within experimental uncertainty, this agrees with the accepted value of gravitational acceleration on Earth, $g=\qty{9.8}{\meter\per\second\squared}$ \cite{tipler,openstax,barrons}. Sources of uncertainty include air resistance and the finite frame rate of the video recording (\qty{60}{frame\per\second}), which limits timing resolution and may lead to small systematic errors in the calculated acceleration.
 
 \subsection{Model limitations}
-These findings support our hypothesis, originally proposed by Galileo and later verified by Newton and others, that a free-falling object’s acceleration is independent of an object’s mass. Although the gravitational force acting on an object is proportional to its mass, as described by Newton’s law of universal gravitation $F=\frac{GmM}{r^2}$, taken very near to the surface the Earth at $r=R_E$ and substituting this force into Newton’s second law $F=ma$ shows that the mass of the falling object cancels and the acceleration is approximately constant, resulting in an acceleration that is independent of the object’s mass \cite{tipler}.
+These findings support our hypothesis, originally proposed by Galileo and later verified by Newton and others, that a free-falling object’s acceleration is independent of an object’s mass \cite{galilei:1638:discorsi,machamer:2021:galileo}. Although the gravitational force acting on an object is proportional to its mass, as described by Newton’s law of universal gravitation $F=\frac{GmM}{r^2}$, taken very near to the surface the Earth at $r=R_E$ and substituting this force into Newton’s second law $F=ma$ shows that the mass of the falling object cancels and the acceleration is approximately constant, resulting in an acceleration that is independent of the object’s mass \cite{tipler,openstax,barrons}.
 
 
 
