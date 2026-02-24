@@ -6,7 +6,7 @@
 \usepackage{bm}
 \usepackage{siunitx}
 %\usepackage{tikz,pgfplots}
-\sisetup{separate-uncertainty=true}
+\sisetup{separate-uncertainty=true,multi-part-units=single}
 \usepackage[colorlinks,allcolors=blue]{hyperref}
 \usepackage{cleveref}
 \crefname{equation}{}{}
@@ -23,19 +23,19 @@ pdfauthor={Lorenzo Brunie, Jacob Kadan, Ethan Sobel, and Tarun Ramesh},
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RE,RO]{J S\&E \textbf{2}, 45--46 (2026)}
+\fancyhead[RE,RO]{J S\&E \textbf{2}, 50--52 (2026)}
 \fancyhead[LO]{Brunie \emph{et al}}
 \fancyhead[LE]{Testing the independence of gravitational acceleration from mass}
 \fancyfoot[C]{\thepage}
 \fancypagestyle{mytitlepage}{
 \fancyhf{}
-\fancyhead[C]{Journal of Science \& Engineering \textbf{2}, 45--46 (2026)}
+\fancyhead[C]{Journal of Science \& Engineering \textbf{2}, 50--52 (2026)}
 \fancyfoot[C]{\thepage}
 }
 
 
 \begin{document}
-\setcounter{page}{45}
+\setcounter{page}{50}
 
 \title{Testing the independence of gravitational acceleration from mass: a comparative analysis of free-falling objects near Earth’s surface}
 \author{Lorenzo Brunie}
@@ -47,7 +47,7 @@ pdfauthor={Lorenzo Brunie, Jacob Kadan, Ethan Sobel, and Tarun Ramesh},
 \date{\today}
 
 \begin{abstract}
-The goal of this experiment was to determine whether mass affects the acceleration during a free-fall near the Earth’s surface. We dropped a \qty{2.9}{\kilo\gram} bowling ball and \qty{0.142}{\kilo\gram} baseball from a window \qty{5.0}{\meter} off the ground; we filmed a trial for each ball and used the framerate to calculate how long it took the bowling ball, from when dropped, to when it hit the ground: under the specific conditions of low altitude, \qty{9.8}{\meter\per\second\squared}, and negligible air resistance for the dense objects.  We found that both dense objects reached the ground at nearly equal times: these results support the principle that mass does not affect gravitational acceleration near the Earth's surface.
+The goal of this experiment was to determine whether mass affects the acceleration during a free-fall near the Earth’s surface. We dropped a \qty{2.9}{\kilo\gram} bowling ball and \qty{0.142}{\kilo\gram} baseball from a window \qty{5.0}{\meter} off the ground; we filmed a trial for each ball and used the framerate to calculate how long it took each to hit the ground, under the specific conditions of low altitude and negligible air resistance for the dense objects.  We found that both dense objects reached the ground at nearly equal times: these results support the principle, from Galileo, that mass does not affect acceleration when falling near the Earth's surface.
 \end{abstract}
 
 \keywords{keywords here}
@@ -75,16 +75,19 @@ In this experiment, we attempted to see if these principles held true. By compar
 
 
 \section{Methods and materials}
-\subsection{Objects dropped}
+We collected data by dropping a bowling ball ($m=\qty{2.9}{\kilo\gram}$) and baseball ($m=\qty{0.142}{\kilo\gram}$) from a second story classroom window as shown in \cref{fig:setup}.
 \begin{figure}
 \begin{center}
 \includegraphics{figures/newfig1.pdf}
 \end{center}
-\caption{Caption here}
+\caption{Setup for drop tests of bowling balls and baseballs. Initial height was \qty{5}{\meter}. Drops were filmed with a smartphone at approximately \qty{20}{\meter} distance to reduce parallax.}
+\label{fig:setup}
 \end{figure}
+
+\subsection{Data collection}
 To measure the drop height $y$, meter sticks were secured against the exterior wall directly below the release point. Before each trial, a verbal countdown was used only to coordinate the release of the object and the start of video recording. Each drop was recorded using an iPhone 12 (Apple; Cupertino, CA) at a frame rate of \qty{60}{frame\per\second}, allowing time measurements to be obtained from individual video frames with greater precision than a handheld stopwatch (Pulivia YS-802; Shenzhen, China). The objects were released from rest at the moment the countdown reached zero, without any initial push. The recorded videos were then analyzed using video-tracking software to digitize the trajectories and extract position–time data, from which velocities and accelerations were determined. 
 
-\subsection{Calculations}
+\subsection{Video digitization and statistical analysis}
 Once all experimental trials were completed, the recorded videos were analyzed using Tracker \cite{tracker, renika:2024:kinematics}. This software was used to digitize the motion of each object frame-by-frame and extract position–time data for every trial. From these datasets, velocities and accelerations were determined through numerical differentiation and by fitting the data to constant-acceleration kinematic equations.
 
 Acceleration is defined as the time derivative of velocity, and velocity is the time derivative of position \cite{tipler,openstax,barrons}. For motion under constant gravitational acceleration with downward taken as the positive direction, the kinematic equations are:
@@ -95,7 +98,7 @@ a_y(t) &= - g.
 \end{align}
 Since the objects were released from rest, the initial velocity $v_0=0$. Quadratic fits to the position–time data were used to determine the value of g for each trial, and the resulting accelerations were averaged across trials to obtain final values and uncertainties.
 
-Statistical analyses \cite{starnes:2015:practice} were performed in R \cite{R} using the \texttt{dplyr} and \texttt{ggplot2} libraries \cite{dplyr,ggplot2} 
+Statistical analyses \cite{starnes:2015:practice} were performed in R \cite{R} using the \texttt{dplyr} and \texttt{ggplot2} libraries \cite{dplyr,ggplot2}. Data and code are available at \url{https://github.com/devangel77b/427lbrunie-lab1}.
 
 
 
@@ -103,7 +106,9 @@ Statistical analyses \cite{starnes:2015:practice} were performed in R \cite{R} u
 
 
 \section{Results}
-We recorded the relationship between the distance fallen and the time for the bowling ball and the baseball from a drop height of \qty{5}{\meter}. The data were used to produce a time vs. distance graph, comparing the two balls. The balls fell at nearly the same rate and hit the ground at nearly identical times. As shown in the figures below. \textbf{This part goes in discussion? You need to refer to all the graphs and tables somewhere.}
+\Cref{fig:1} and \cref{tab:3} show the vertical position data for bowling and baseball. \Cref{fig:2} and \cref{tab:4} give the vertical velocity data for the same dataset. For the data shown, $g=\qty{10.0\pm0.1}{\meter\per\second\squared}$ (linear regression, $p<\num{2e-16}$). \Cref{tab:5} summarizes the fall times for $n=5$ drops of each ball. There are not significant differences between the two balls ($t$-test, $t=0$, $df=7.3$, $p=1$). 
+
+%We recorded the relationship between the distance fallen and the time for the bowling ball and the baseball from a drop height of \qty{5}{\meter}. The data were used to produce a time vs. distance graph, comparing the two balls. The balls fell at nearly the same rate and hit the ground at nearly identical times. As shown in the figures below. \textbf{This part goes in discussion? You need to refer to all the graphs and tables somewhere.}
 \begin{figure}
 \begin{center}
 \includesvg{fig1.svg}
@@ -141,20 +146,24 @@ We recorded the relationship between the distance fallen and the time for the bo
 
 
 \section{Discussion}
-The results of this experiment are consistent with the prediction that objects in free fall near Earth’s surface experience the same gravitational acceleration \cite{tipler,openstax,barrons}. As shown in \cref{fig:1}, the bowling ball (\qty{2.9}{\kilo\gram}) and the baseball (\qty{0.142}{\kilo\gram}) reached the ground within experimental uncertainty when dropped from a height of \qty{5}{\meter}. This coincides with the prediction that gravitational acceleration is independent of mass under the conditions tested.
 
-From velocity-time data (\cref{fig:2}), the linear relationship observed indicates that the acceleration remained approximately constant during the fall, at a value of . Within experimental uncertainty, this agrees with the accepted value of gravitational acceleration on Earth, $g=\qty{9.8}{\meter\per\second\squared}$ \cite{tipler,openstax,barrons}. Sources of uncertainty include air resistance and the finite frame rate of the video recording (\qty{60}{frame\per\second}), which limits timing resolution and may lead to small systematic errors in the calculated acceleration.
+\subsection{Objects experience the same gravitational acceleration}
+The results of this experiment are consistent with the prediction that objects in free fall near Earth’s surface experience the same gravitational acceleration \cite{tipler,openstax,barrons}. As shown in \cref{fig:1} and \cref{fig:2}, the bowling ball (\qty{2.9}{\kilo\gram}) and the baseball (\qty{0.142}{\kilo\gram}) accelerate at the same rate and reach the ground together. The time to reach the ground shows no differences between balls (\cref{tab:5}). These support Galileo's hypothesis and refute Aristotle's. 
 
-\subsection{Model limitations}
+From velocity-time data (\cref{fig:2}), the linear relationship observed indicates that the acceleration remained approximately constant during the fall, at a value of $g=\qty{10.0\pm0.1}{\meter\per\second\squared}$ . This is close to the accepted value of gravitational acceleration on Earth, $g=\qty{9.8}{\meter\per\second\squared}$ \cite{tipler,openstax,barrons}. 
+
 These findings support our hypothesis, originally proposed by Galileo and later verified by Newton and others, that a free-falling object’s acceleration is independent of an object’s mass \cite{galilei:1638:discorsi,machamer:2021:galileo}. Although the gravitational force acting on an object is proportional to its mass, as described by Newton’s law of universal gravitation $F=\frac{GmM}{r^2}$, taken very near to the surface the Earth at $r=R_E$ and substituting this force into Newton’s second law $F=ma$ shows that the mass of the falling object cancels and the acceleration is approximately constant, resulting in an acceleration that is independent of the object’s mass \cite{tipler,openstax,barrons}.
 
+\subsection{Model limitations and sources of uncertainty}
+If the object experienced large aerodynamic forces (e.g. drag) in comparison to its weight, these results would not hold. Sources of uncertainty include air resistance and the finite frame rate of the video recording (\qty{60}{frame\per\second}), which limits timing resolution and may lead to small systematic errors in the calculated acceleration.
 
+Additional sources of uncertainty are variations due to drop technique, systematic differences in timing with stopwatches, and camera distortion effects on digitization. 
 
 
 
 
 \section{Acknowledgements} 
-We thank J.~Komitas and the Science and Engineering Magnet Program, for providing us with the resources and lab space to conduct our research. We thank several anonymous reviewers for providing helpful comments. LB did X. JK did X. ES did X. TR did X. 
+We thank J.~Komitas and the Science and Engineering Magnet Program, for providing us with the resources and lab space to conduct our research. We thank several anonymous reviewers for providing helpful comments. LB, JK, ES, and TR avoided equally on the manuscript and declined to list individual contributions. We thank Dr Evangelista for graciously helping to format the manuscript for final publishing when we did not respond at all to any of his questions. 
 
 
 
